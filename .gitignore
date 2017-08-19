@@ -1,9 +1,0 @@
-.idea/*
-*.py[co]
-/*.egg-info
-/build/
-/dist/
-/docs/build
-/cover-html/
-.coverage
-/.cache/

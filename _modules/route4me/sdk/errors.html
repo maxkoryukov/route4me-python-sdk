@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>route4me.sdk.errors &mdash; Route4Me Python SDK 0.1.0-dev.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.4 documentation" href="../../../index.html"/>
+        <link rel="up" title="route4me.sdk" href="../sdk.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Route4Me Python SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0-dev.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../errors.html">Errors</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Route4Me Python SDK</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../sdk.html">route4me.sdk</a> &raquo;</li>
+        
+      <li>route4me.sdk.errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for route4me.sdk.errors</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<div class="viewcode-block" id="Route4MeError"><a class="viewcode-back" href="../../../errors.html#route4me.sdk.errors.Route4MeError">[docs]</a><span class="k">class</span> <span class="nc">Route4MeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Base (abstract) Exception</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+		<span class="bp">self</span><span class="p">,</span>
+		<span class="n">message</span><span class="p">,</span>
+		<span class="n">code</span><span class="o">=</span><span class="s1">&#39;route4me.sdk.other&#39;</span><span class="p">,</span>
+		<span class="n">details</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+		<span class="n">inner</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+	<span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Constructor.</span>
+
+<span class="sd">		Creates a new instance of Route4MeError.</span>
+
+<span class="sd">		:param message: Error message</span>
+<span class="sd">		:type message: str</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="nb">super</span><span class="p">(</span><span class="n">Route4MeError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Unique error code. Helps to distinguish different errors.</span>
+
+<span class="sd">		:type: str</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="n">details</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">details</span> <span class="o">=</span> <span class="n">details</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Some error details</span>
+
+<span class="sd">		:type: dict</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">inner</span> <span class="o">=</span> <span class="n">inner</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Internal exception that describes an original error.</span>
+
+<span class="sd">		:type: Exception</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Route4MeError.get_message"><a class="viewcode-back" href="../../../errors.html#route4me.sdk.errors.Route4MeError.get_message">[docs]</a>	<span class="k">def</span> <span class="nf">get_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Route4MeError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span></div>
+
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+		<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{tp}</span><span class="s1">: [</span><span class="si">{code}</span><span class="s1">] </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+			<span class="n">tp</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+			<span class="n">code</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">,</span>
+			<span class="n">message</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_message</span><span class="p">(),</span>
+		<span class="p">)</span>
+		<span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="Route4MeNetworkError"><a class="viewcode-back" href="../../../errors.html#route4me.sdk.errors.Route4MeNetworkError">[docs]</a><span class="k">class</span> <span class="nc">Route4MeNetworkError</span><span class="p">(</span><span class="n">Route4MeError</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Route4Me SDK network/connection errors.</span>
+
+<span class="sd">	Occurs on:</span>
+
+<span class="sd">	- invalid SSL</span>
+<span class="sd">	- network timeout</span>
+<span class="sd">	- wrong redirects (Route4Me API doesn&#39;t send redirect responses)</span>
+<span class="sd">	- no connection, no path to route (DNS)</span>
+
+<span class="sd">	More details could be observed using :py:attr:`~.Route4MeError.code` and</span>
+<span class="sd">	:py:attr:`~.Route4MeError.details`</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Route4MeValidationError"><a class="viewcode-back" href="../../../errors.html#route4me.sdk.errors.Route4MeValidationError">[docs]</a><span class="k">class</span> <span class="nc">Route4MeValidationError</span><span class="p">(</span><span class="n">Route4MeError</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Route4Me Validation error.</span>
+
+<span class="sd">	Variable has invalid format/data</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Route4Me Python Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,7 +1,0 @@
-include AUTHORS
-include CHANGELOG.md
-include README.rst
-include LICENSE.md
-
-exclude .travis.yml
-exclude appveyor.yml
