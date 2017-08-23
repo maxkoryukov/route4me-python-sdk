@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>route4me.sdk.enums &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="../../../index.html"/>
+        <link rel="up" title="route4me.sdk" href="../sdk.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Route4Me Python SDK
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0-dev.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../errors.html">Errors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Route4Me Python SDK</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../sdk.html">route4me.sdk</a> &raquo;</li>
+        
+      <li>route4me.sdk.enums</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for route4me.sdk.enums</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">enum</span> <span class="k">import</span> <span class="n">Enum</span>
+
+
+<div class="viewcode-block" id="AlgorithmTypeEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.AlgorithmTypeEnum">[docs]</a><span class="k">class</span> <span class="nc">AlgorithmTypeEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	The algorithm type to be used.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">TSP</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	TSP</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">VRP</span> <span class="o">=</span> <span class="mi">2</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	VRP</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">CVRP_TW_SD</span> <span class="o">=</span> <span class="mi">3</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	CVRP_TW_SD</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">CVRP_TW_MD</span> <span class="o">=</span> <span class="mi">4</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	CVRP_TW_MD</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">TSP_TW</span> <span class="o">=</span> <span class="mi">5</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	TSP_TW</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">TSP_TW_CR</span> <span class="o">=</span> <span class="mi">6</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	TSP_TW_CR</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">BBCVRP</span> <span class="o">=</span> <span class="mi">7</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	BBCVRP</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">ALG_LEGACY_DISTRIBUTED</span> <span class="o">=</span> <span class="mi">101</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	ALG_LEGACY_DISTRIBUTED</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">ALG_NONE</span> <span class="o">=</span> <span class="mi">100</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	ALG_NONE</span>
+
+<span class="sd">	.. todo::</span>
+<span class="sd">		add clear and understandable description</span>
+<span class="sd">	&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="OptimizationFactorEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.OptimizationFactorEnum">[docs]</a><span class="k">class</span> <span class="nc">OptimizationFactorEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	The driving directions can be generated biased for this selection. This</span>
+<span class="sd">	has no impact on route sequencing.</span>
+
+<span class="sd">	.. note::</span>
+
+<span class="sd">		In Route4Me API this enum also known as ``optimize``</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Optimize by distance</span>
+	<span class="n">DISTANCE</span> <span class="o">=</span> <span class="s1">&#39;Distance&#39;</span>
+
+	<span class="c1">#: Optimize by time</span>
+	<span class="n">TIME</span> <span class="o">=</span> <span class="s1">&#39;Time&#39;</span>
+
+	<span class="c1">#: Optimize by time and traffic</span>
+	<span class="n">TIME_TRAFFIC</span> <span class="o">=</span> <span class="s1">&#39;timeWithTraffic&#39;</span></div>
+
+
+<div class="viewcode-block" id="DistanceUnitEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.DistanceUnitEnum">[docs]</a><span class="k">class</span> <span class="nc">DistanceUnitEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	:class:`~.Optimization` problem can be at one state at any given time</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Miles</span>
+	<span class="n">MILE</span> <span class="o">=</span> <span class="s1">&#39;mi&#39;</span>
+
+	<span class="c1">#: Kilometers</span>
+	<span class="n">KILOMETER</span> <span class="o">=</span> <span class="s1">&#39;km&#39;</span></div>
+
+
+<div class="viewcode-block" id="OptimizationStateEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.OptimizationStateEnum">[docs]</a><span class="k">class</span> <span class="nc">OptimizationStateEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	The distance measurement unit</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Initial</span>
+	<span class="n">INITIAL</span> <span class="o">=</span> <span class="mi">1</span>
+
+	<span class="c1">#: Matrix Processing</span>
+	<span class="n">MATRIX_PROCESSING</span> <span class="o">=</span> <span class="mi">2</span>
+
+	<span class="c1">#: Optimizing</span>
+	<span class="n">OPTIMIZING</span> <span class="o">=</span> <span class="mi">3</span>
+
+	<span class="c1">#: Optimized</span>
+	<span class="n">OPTIMIZED</span> <span class="o">=</span> <span class="mi">4</span>
+
+	<span class="c1">#: Error</span>
+	<span class="n">ERROR</span> <span class="o">=</span> <span class="mi">5</span>
+
+	<span class="c1">#: Computing Directions</span>
+	<span class="n">COMPUTING_DIRECTIONS</span> <span class="o">=</span> <span class="mi">6</span></div>
+
+
+<div class="viewcode-block" id="DeviceTypeEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.DeviceTypeEnum">[docs]</a><span class="k">class</span> <span class="nc">DeviceTypeEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Device Type</span>
+
+<span class="sd">	The type of the device that is creating this route</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Web</span>
+	<span class="n">WEB</span> <span class="o">=</span> <span class="s2">&quot;web&quot;</span>
+
+	<span class="c1">#: IPhone</span>
+	<span class="n">IPHONE</span> <span class="o">=</span> <span class="s2">&quot;iphone&quot;</span>
+
+	<span class="c1">#: IPad</span>
+	<span class="n">IPAD</span> <span class="o">=</span> <span class="s2">&quot;ipad&quot;</span>
+
+	<span class="c1">#: Android phone</span>
+	<span class="n">ANDROID_PHONE</span> <span class="o">=</span> <span class="s2">&quot;android_phone&quot;</span>
+
+	<span class="c1">#: Android tablet</span>
+	<span class="n">ANDROID_TABLET</span> <span class="o">=</span> <span class="s2">&quot;android_tablet&quot;</span></div>
+
+
+<div class="viewcode-block" id="TravelModeEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.TravelModeEnum">[docs]</a><span class="k">class</span> <span class="nc">TravelModeEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Travel Mode</span>
+
+<span class="sd">	The mode of travel that the directions should be optimized for</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Driving</span>
+	<span class="n">DRIVING</span> <span class="o">=</span> <span class="s1">&#39;Driving&#39;</span>
+
+	<span class="c1">#: Walking</span>
+	<span class="n">WALKING</span> <span class="o">=</span> <span class="s1">&#39;Walking&#39;</span>
+
+	<span class="c1">#: Trucking</span>
+	<span class="n">TRUCKING</span> <span class="o">=</span> <span class="s1">&#39;Trucking&#39;</span>
+
+	<span class="c1">#: Cycling</span>
+	<span class="n">CYCLING</span> <span class="o">=</span> <span class="s1">&#39;Cycling&#39;</span>
+
+	<span class="c1">#: Transit</span>
+	<span class="n">TRANSIT</span> <span class="o">=</span> <span class="s1">&#39;Transit&#39;</span></div>
+
+
+<div class="viewcode-block" id="RouteMetricEnum"><a class="viewcode-back" href="../../../api.html#route4me.sdk.enums.RouteMetricEnum">[docs]</a><span class="k">class</span> <span class="nc">RouteMetricEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Metric</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Euclidean</span>
+	<span class="n">EUCLIDEAN</span> <span class="o">=</span> <span class="mi">1</span>
+
+	<span class="c1">#: Manhattan</span>
+	<span class="n">MANHATTAN</span> <span class="o">=</span> <span class="mi">2</span>
+
+	<span class="c1">#: Geodesic</span>
+	<span class="n">GEODESIC</span> <span class="o">=</span> <span class="mi">3</span>
+
+	<span class="c1">#: Matrix</span>
+	<span class="n">MATRIX</span> <span class="o">=</span> <span class="mi">4</span>
+
+	<span class="c1">#: Exact 2d</span>
+	<span class="n">EXACT2D</span> <span class="o">=</span> <span class="mi">5</span></div>
+
+
+<span class="c1"># TYPE_OF_MATRIX = enum(R4M_PROPRIETARY_ROUTING=1,</span>
+<span class="c1">#                       R4M_TRAFFIC_ENGINE=3,</span>
+<span class="c1">#                       TRUCKING=6)</span>
+
+<span class="c1"># DIRECTIONS_METHOD = enum(R4M_PROPRIETARY_INTERNAL_NAVIGATION_SYSTEM=1,</span>
+<span class="c1">#                          TRUCKING=3)</span>
+
+<span class="c1"># AVOID = enum(HIGHWAYS=&#39;Highways&#39;,</span>
+<span class="c1">#              TOLLS=&#39;Tolls&#39;,</span>
+<span class="c1">#              MINIMIZE_HIGHWAYS=&#39;minimizeHighways&#39;,</span>
+<span class="c1">#              MINIMIZE_TOLLS=&#39;minimizeTolls&#39;,</span>
+<span class="c1">#              NONE=&#39;&#39;)</span>
+
+
+<span class="c1"># FORMAT = enum(CSV=&#39;csv&#39;,</span>
+<span class="c1">#               SERIALIZED=&#39;serialized&#39;,</span>
+<span class="c1">#               XML=&#39;xml&#39;,</span>
+<span class="c1">#               JSON=&#39;json&#39;)</span>
+
+
+<span class="c1"># ROUTE_PATH_OUTPUT = enum(NONE=&#39;None&#39;,</span>
+<span class="c1">#                          POINTS=&#39;Points&#39;)</span>
+
+<span class="c1"># UTURN = auto_enum(&#39;UTURN_DEPART_SHORTEST&#39;,</span>
+<span class="c1">#                   &#39;UTURN_DEPART_TO_RIGHT&#39;)</span>
+
+<span class="c1"># LEFT_TURN = auto_enum(&#39;LEFTTURN_ALLOW&#39;,</span>
+<span class="c1">#                       &#39;LEFTTURN_FORBID&#39;,</span>
+<span class="c1">#                       &#39;LEFTTURN_MULTIAPPROACH&#39;)</span>
+
+<span class="c1"># TRUCK_HAZARDOUS_GOODS = enum(NONE=&#39;&#39;,</span>
+<span class="c1">#                              EXPLOSIVE=&#39;explosive&#39;,</span>
+<span class="c1">#                              GAS=&#39;gas&#39;,</span>
+<span class="c1">#                              FLAMMABLE=&#39;flammable&#39;,</span>
+<span class="c1">#                              COMBUSTIBLE=&#39;combustible&#39;,</span>
+<span class="c1">#                              ORGANIC=&#39;organic&#39;,</span>
+<span class="c1">#                              POISON=&#39;poison&#39;,</span>
+<span class="c1">#                              RADIOACTIVE=&#39;radioActive&#39;,</span>
+<span class="c1">#                              CORROSIVE=&#39;corrosive&#39;,</span>
+<span class="c1">#                              POISONOUSINHALATION=&#39;poisonousInhalation&#39;,</span>
+<span class="c1">#                              HARMFULTOWATER=&#39;harmfulToWater&#39;,</span>
+<span class="c1">#                              OTHER=&#39;other&#39;,</span>
+<span class="c1">#                              ALLHAZARDOUSGOODS=&#39;allHazardousGoods&#39;)</span>
+
+<span class="c1"># TERRITORY_TYPE = enum(CIRCLE=&#39;circle&#39;,</span>
+<span class="c1">#                       POLY=&#39;poly&#39;,</span>
+<span class="c1">#                       RECT=&#39;rect&#39;, )</span>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0-dev.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

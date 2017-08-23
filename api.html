@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API &mdash; Route4Me Python SDK 0.1.0-dev.4 documentation</title>
+  <title>API &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.4 documentation" href="index.html"/>
-        <link rel="next" title="Errors" href="errors.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="index.html"/>
+        <link rel="next" title="Utilities" href="utils.html"/>
         <link rel="prev" title="Installation guide" href="install.html"/> 
 
   
@@ -60,13 +60,16 @@
           
 
           
+            
+            <img src="_static/logo.png" class="logo" />
+          
           </a>
 
           
             
             
               <div class="version">
-                0.1.0-dev.4
+                0.1.0-dev.5
               </div>
             
           
@@ -90,15 +93,34 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-structures">Data Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-route4me.sdk.models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-route4me.sdk.enums">Enums and constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-endpoints">API endpoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-route4me.sdk.resources.geocodings">Geocoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-route4me.sdk.resources.optimizations">Optimizations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
             
@@ -137,6 +159,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -149,7 +173,10 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/route4me/route4me-python-sdk" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -165,14 +192,593 @@
   <div class="section" id="module-route4me.sdk">
 <span id="api"></span><h1>API<a class="headerlink" href="#module-route4me.sdk" title="Permalink to this headline">¶</a></h1>
 <p>Official Python SDK for Route4Me</p>
+<p>Contains all required functions to work with Route4Me from Python’s environment.</p>
 <dl class="class">
-<dt id="route4me.sdk.Route4Me">
-<em class="property">class </em><code class="descclassname">route4me.sdk.</code><code class="descname">Route4Me</code><span class="sig-paren">(</span><em>api_key=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk.html#Route4Me"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.Route4Me" title="Permalink to this definition">¶</a></dt>
+<dt id="route4me.sdk.ApiClient">
+<em class="property">class </em><code class="descclassname">route4me.sdk.</code><code class="descname">ApiClient</code><span class="sig-paren">(</span><em>api_key=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk.html#ApiClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.ApiClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Route4Me API client (implements all SDK features)</p>
-<p>Contains all methods and namespaces available to work with Route4Me API</p>
+<p>Route4Me API client</p>
+<p>Provides an access to API’s endpoints through a convenient interface. In
+other words, all the power of Route4Me API is accessible through this
+class.</p>
+<dl class="method">
+<dt id="route4me.sdk.ApiClient.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>api_key=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk.html#ApiClient.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.ApiClient.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.ApiClient.geocodings">
+<code class="descname">geocodings</code><a class="headerlink" href="#route4me.sdk.ApiClient.geocodings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geocodings functions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Geocoding namespace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#route4me.sdk.resources.geocodings.Geocodings" title="route4me.sdk.resources.geocodings.Geocodings"><code class="xref py py-class docutils literal"><span class="pre">Geocodings</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
+</dd></dl>
+
+<div class="section" id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-route4me.sdk.models">
+<span id="models"></span><h3>Models<a class="headerlink" href="#module-route4me.sdk.models" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="route4me.sdk.models.Optimization">
+<em class="property">class </em><code class="descclassname">route4me.sdk.models.</code><code class="descname">Optimization</code><span class="sig-paren">(</span><em>raw=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/models.html#Optimization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.models.Optimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">route4me.sdk.models.BaseModel</span></code></p>
+<p>Optimization problem (or simple <em>Optimization</em>)</p>
+<dl class="method">
+<dt id="route4me.sdk.models.Optimization.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>raw=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/models.html#Optimization.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.models.Optimization.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create instance <strong>LOCALLY</strong>.</p>
+<p>Use <a class="reference internal" href="#route4me.sdk.resources.optimizations.Optimizations.create" title="route4me.sdk.resources.optimizations.Optimizations.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>
+to create new Optimization Problem in the Route4Me API</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a><em>, </em><em>optional</em>) – Raw values for new optimization, example:                   <a class="reference external" href="https://route4me.io/docs/#create-an-optimization">create optimization</a>,                      defaults to None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.models.Optimization.algorithm_type">
+<code class="descname">algorithm_type</code><a class="headerlink" href="#route4me.sdk.models.Optimization.algorithm_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The algorithm type to be used</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Getter:</th><td class="field-body">Get</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#route4me.sdk.enums.AlgorithmTypeEnum" title="route4me.sdk.enums.AlgorithmTypeEnum">AlgorithmTypeEnum</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.models.Optimization.disable_optimization">
+<code class="descname">disable_optimization</code><a class="headerlink" href="#route4me.sdk.models.Optimization.disable_optimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>By disabling optimization, the route optimization engine will not
+resequence stops in your optimization problem</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Getter:</th><td class="field-body">Get</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)">~bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.models.Optimization.metric">
+<code class="descname">metric</code><a class="headerlink" href="#route4me.sdk.models.Optimization.metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Getter:</th><td class="field-body">Get</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#route4me.sdk.enums.RouteMetricEnum" title="route4me.sdk.enums.RouteMetricEnum">RouteMetricEnum</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.models.Optimization.name">
+<code class="descname">name</code><a class="headerlink" href="#route4me.sdk.models.Optimization.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this optimization problem. This name will be accessible in
+the search API, and also will be displayed on the mobile device of
+a user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Getter:</th><td class="field-body">Get</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">~str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.models.Optimization.parts">
+<code class="descname">parts</code><a class="headerlink" href="#route4me.sdk.models.Optimization.parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy feature which permits a user to request an example number of
+optimized routes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Getter:</th><td class="field-body">Get</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)">~int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.models.Optimization.state">
+<code class="descname">state</code><a class="headerlink" href="#route4me.sdk.models.Optimization.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current state of the optimization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Getter:</th><td class="field-body">Get</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#route4me.sdk.enums.OptimizationStateEnum" title="route4me.sdk.enums.OptimizationStateEnum">OptimizationStateEnum</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-route4me.sdk.enums">
+<span id="enums-and-constants"></span><h3>Enums and constants<a class="headerlink" href="#module-route4me.sdk.enums" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">AlgorithmTypeEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#AlgorithmTypeEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>The algorithm type to be used.</p>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.ALG_LEGACY_DISTRIBUTED">
+<code class="descname">ALG_LEGACY_DISTRIBUTED</code><em class="property"> = 101</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.ALG_LEGACY_DISTRIBUTED" title="Permalink to this definition">¶</a></dt>
+<dd><p>ALG_LEGACY_DISTRIBUTED</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.ALG_NONE">
+<code class="descname">ALG_NONE</code><em class="property"> = 100</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.ALG_NONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ALG_NONE</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.BBCVRP">
+<code class="descname">BBCVRP</code><em class="property"> = 7</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.BBCVRP" title="Permalink to this definition">¶</a></dt>
+<dd><p>BBCVRP</p>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.CVRP_TW_MD">
+<code class="descname">CVRP_TW_MD</code><em class="property"> = 4</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.CVRP_TW_MD" title="Permalink to this definition">¶</a></dt>
+<dd><p>CVRP_TW_MD</p>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.CVRP_TW_SD">
+<code class="descname">CVRP_TW_SD</code><em class="property"> = 3</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.CVRP_TW_SD" title="Permalink to this definition">¶</a></dt>
+<dd><p>CVRP_TW_SD</p>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.TSP">
+<code class="descname">TSP</code><em class="property"> = 1</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.TSP" title="Permalink to this definition">¶</a></dt>
+<dd><p>TSP</p>
+<div class="admonition-todo admonition" id="index-5">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.TSP_TW">
+<code class="descname">TSP_TW</code><em class="property"> = 5</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.TSP_TW" title="Permalink to this definition">¶</a></dt>
+<dd><p>TSP_TW</p>
+<div class="admonition-todo admonition" id="index-6">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.TSP_TW_CR">
+<code class="descname">TSP_TW_CR</code><em class="property"> = 6</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.TSP_TW_CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>TSP_TW_CR</p>
+<div class="admonition-todo admonition" id="index-7">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.AlgorithmTypeEnum.VRP">
+<code class="descname">VRP</code><em class="property"> = 2</em><a class="headerlink" href="#route4me.sdk.enums.AlgorithmTypeEnum.VRP" title="Permalink to this definition">¶</a></dt>
+<dd><p>VRP</p>
+<div class="admonition-todo admonition" id="index-8">
+<p class="first admonition-title">Todo</p>
+<p class="last">add clear and understandable description</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="route4me.sdk.enums.DeviceTypeEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">DeviceTypeEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#DeviceTypeEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.DeviceTypeEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>Device Type</p>
+<p>The type of the device that is creating this route</p>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DeviceTypeEnum.ANDROID_PHONE">
+<code class="descname">ANDROID_PHONE</code><em class="property"> = 'android_phone'</em><a class="headerlink" href="#route4me.sdk.enums.DeviceTypeEnum.ANDROID_PHONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Android phone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DeviceTypeEnum.ANDROID_TABLET">
+<code class="descname">ANDROID_TABLET</code><em class="property"> = 'android_tablet'</em><a class="headerlink" href="#route4me.sdk.enums.DeviceTypeEnum.ANDROID_TABLET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Android tablet</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DeviceTypeEnum.IPAD">
+<code class="descname">IPAD</code><em class="property"> = 'ipad'</em><a class="headerlink" href="#route4me.sdk.enums.DeviceTypeEnum.IPAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPad</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DeviceTypeEnum.IPHONE">
+<code class="descname">IPHONE</code><em class="property"> = 'iphone'</em><a class="headerlink" href="#route4me.sdk.enums.DeviceTypeEnum.IPHONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPhone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DeviceTypeEnum.WEB">
+<code class="descname">WEB</code><em class="property"> = 'web'</em><a class="headerlink" href="#route4me.sdk.enums.DeviceTypeEnum.WEB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Web</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="route4me.sdk.enums.DistanceUnitEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">DistanceUnitEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#DistanceUnitEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.DistanceUnitEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p><a class="reference internal" href="#route4me.sdk.models.Optimization" title="route4me.sdk.models.Optimization"><code class="xref py py-class docutils literal"><span class="pre">Optimization</span></code></a> problem can be at one state at any given time</p>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DistanceUnitEnum.KILOMETER">
+<code class="descname">KILOMETER</code><em class="property"> = 'km'</em><a class="headerlink" href="#route4me.sdk.enums.DistanceUnitEnum.KILOMETER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kilometers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.DistanceUnitEnum.MILE">
+<code class="descname">MILE</code><em class="property"> = 'mi'</em><a class="headerlink" href="#route4me.sdk.enums.DistanceUnitEnum.MILE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Miles</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="route4me.sdk.enums.OptimizationFactorEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">OptimizationFactorEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#OptimizationFactorEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.OptimizationFactorEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>The driving directions can be generated biased for this selection. This
+has no impact on route sequencing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Route4Me API this enum also known as <code class="docutils literal"><span class="pre">optimize</span></code></p>
+</div>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationFactorEnum.DISTANCE">
+<code class="descname">DISTANCE</code><em class="property"> = 'Distance'</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationFactorEnum.DISTANCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize by distance</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationFactorEnum.TIME">
+<code class="descname">TIME</code><em class="property"> = 'Time'</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationFactorEnum.TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize by time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationFactorEnum.TIME_TRAFFIC">
+<code class="descname">TIME_TRAFFIC</code><em class="property"> = 'timeWithTraffic'</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationFactorEnum.TIME_TRAFFIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize by time and traffic</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="route4me.sdk.enums.OptimizationStateEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">OptimizationStateEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#OptimizationStateEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>The distance measurement unit</p>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationStateEnum.COMPUTING_DIRECTIONS">
+<code class="descname">COMPUTING_DIRECTIONS</code><em class="property"> = 6</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum.COMPUTING_DIRECTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing Directions</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationStateEnum.ERROR">
+<code class="descname">ERROR</code><em class="property"> = 5</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationStateEnum.INITIAL">
+<code class="descname">INITIAL</code><em class="property"> = 1</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum.INITIAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationStateEnum.MATRIX_PROCESSING">
+<code class="descname">MATRIX_PROCESSING</code><em class="property"> = 2</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum.MATRIX_PROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix Processing</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationStateEnum.OPTIMIZED">
+<code class="descname">OPTIMIZED</code><em class="property"> = 4</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum.OPTIMIZED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimized</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.OptimizationStateEnum.OPTIMIZING">
+<code class="descname">OPTIMIZING</code><em class="property"> = 3</em><a class="headerlink" href="#route4me.sdk.enums.OptimizationStateEnum.OPTIMIZING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimizing</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="route4me.sdk.enums.RouteMetricEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">RouteMetricEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#RouteMetricEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.RouteMetricEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>Metric</p>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.RouteMetricEnum.EUCLIDEAN">
+<code class="descname">EUCLIDEAN</code><em class="property"> = 1</em><a class="headerlink" href="#route4me.sdk.enums.RouteMetricEnum.EUCLIDEAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Euclidean</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.RouteMetricEnum.EXACT2D">
+<code class="descname">EXACT2D</code><em class="property"> = 5</em><a class="headerlink" href="#route4me.sdk.enums.RouteMetricEnum.EXACT2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exact 2d</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.RouteMetricEnum.GEODESIC">
+<code class="descname">GEODESIC</code><em class="property"> = 3</em><a class="headerlink" href="#route4me.sdk.enums.RouteMetricEnum.GEODESIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geodesic</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.RouteMetricEnum.MANHATTAN">
+<code class="descname">MANHATTAN</code><em class="property"> = 2</em><a class="headerlink" href="#route4me.sdk.enums.RouteMetricEnum.MANHATTAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manhattan</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.RouteMetricEnum.MATRIX">
+<code class="descname">MATRIX</code><em class="property"> = 4</em><a class="headerlink" href="#route4me.sdk.enums.RouteMetricEnum.MATRIX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="route4me.sdk.enums.TravelModeEnum">
+<em class="property">class </em><code class="descclassname">route4me.sdk.enums.</code><code class="descname">TravelModeEnum</code><a class="reference internal" href="_modules/route4me/sdk/enums.html#TravelModeEnum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.enums.TravelModeEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>Travel Mode</p>
+<p>The mode of travel that the directions should be optimized for</p>
+<dl class="attribute">
+<dt id="route4me.sdk.enums.TravelModeEnum.CYCLING">
+<code class="descname">CYCLING</code><em class="property"> = 'Cycling'</em><a class="headerlink" href="#route4me.sdk.enums.TravelModeEnum.CYCLING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycling</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.TravelModeEnum.DRIVING">
+<code class="descname">DRIVING</code><em class="property"> = 'Driving'</em><a class="headerlink" href="#route4me.sdk.enums.TravelModeEnum.DRIVING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Driving</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.TravelModeEnum.TRANSIT">
+<code class="descname">TRANSIT</code><em class="property"> = 'Transit'</em><a class="headerlink" href="#route4me.sdk.enums.TravelModeEnum.TRANSIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.TravelModeEnum.TRUCKING">
+<code class="descname">TRUCKING</code><em class="property"> = 'Trucking'</em><a class="headerlink" href="#route4me.sdk.enums.TravelModeEnum.TRUCKING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trucking</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="route4me.sdk.enums.TravelModeEnum.WALKING">
+<code class="descname">WALKING</code><em class="property"> = 'Walking'</em><a class="headerlink" href="#route4me.sdk.enums.TravelModeEnum.WALKING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walking</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="api-endpoints">
+<h2>API endpoints<a class="headerlink" href="#api-endpoints" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-route4me.sdk.resources.geocodings">
+<span id="geocoding"></span><h3>Geocoding<a class="headerlink" href="#module-route4me.sdk.resources.geocodings" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="route4me.sdk.resources.geocodings.Geocodings">
+<em class="property">class </em><code class="descclassname">route4me.sdk.resources.geocodings.</code><code class="descname">Geocodings</code><span class="sig-paren">(</span><em>api_key=None</em>, <em>_network_client=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/resources/geocodings.html#Geocodings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.resources.geocodings.Geocodings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Geocondings stuff</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://route4me.io/docs/#geocoding">https://route4me.io/docs/#geocoding</a></p>
+</div>
+<dl class="method">
+<dt id="route4me.sdk.resources.geocodings.Geocodings.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>api_key=None</em>, <em>_network_client=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/resources/geocodings.html#Geocodings.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.resources.geocodings.Geocodings.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-route4me.sdk.resources.optimizations">
+<span id="optimizations"></span><h3>Optimizations<a class="headerlink" href="#module-route4me.sdk.resources.optimizations" title="Permalink to this headline">¶</a></h3>
+<p>An Optimization Problem refers to a collection of addresses that need to be
+visited.</p>
+<p>The optimization problem takes into consideration all of the addresses that
+need to be visited and all the constraints associated with each address and
+depot.</p>
+<p>It is preferable to create an optimization problem with as many orders in it
+as possible, so that the optimization engine is able to consider the entire
+problem set.</p>
+<p>This is different from a <code class="xref py py-class docutils literal"><span class="pre">Route</span></code>, which
+is a sequence of addresses that need to be visited by a single vehicle and
+driver in a fixed time period. Solving an Optimization Problem results in
+a number of routes. (Possibly recurring in the future)</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://route4me.io/docs/#optimizations">https://route4me.io/docs/#optimizations</a></p>
+</div>
+<dl class="class">
+<dt id="route4me.sdk.resources.optimizations.Optimizations">
+<em class="property">class </em><code class="descclassname">route4me.sdk.resources.optimizations.</code><code class="descname">Optimizations</code><span class="sig-paren">(</span><em>api_key=None</em>, <em>_network_client=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/resources/optimizations.html#Optimizations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.resources.optimizations.Optimizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Optimizations resource</p>
+<dl class="method">
+<dt id="route4me.sdk.resources.optimizations.Optimizations.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>api_key=None</em>, <em>_network_client=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/resources/optimizations.html#Optimizations.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.resources.optimizations.Optimizations.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="route4me.sdk.resources.optimizations.Optimizations.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>optimization_data</em>, <em>optimized_callback_url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/resources/optimizations.html#Optimizations.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.resources.optimizations.Optimizations.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new optimization through the Route4Me API</p>
+<p>You could pass any valid URL as <a href="#id1"><span class="problematic" id="id2">:paramref:`optimized_callback_url`</span></a>
+parameter.</p>
+<p>The callback URL is a URL that gets called when the optimization is
+solved, or if there is an error. The callback is called with a
+<code class="docutils literal"><span class="pre">POST</span></code> request. The POST data sent is:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">timestamp</span></code> (seconds)</li>
+<li><code class="docutils literal"><span class="pre">optimization_problem_id</span></code></li>
+<li><code class="docutils literal"><span class="pre">state</span></code> (id  of the optimization state)</li>
+</ul>
+<p>The state is a value from the enumeration
+<a class="reference internal" href="#route4me.sdk.enums.OptimizationStateEnum" title="route4me.sdk.enums.OptimizationStateEnum"><code class="xref py py-class docutils literal"><span class="pre">route4me.sdk.enums.OptimizationStateEnum</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>optimization_data</strong> (<a class="reference internal" href="#route4me.sdk.models.Optimization" title="route4me.sdk.models.Optimization"><em>Optimization</em></a>) – Optimization data</li>
+<li><strong>optimized_callback_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><em>None</em></a>) – <em>Optimization done</em> callback URL</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">New optimization</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#route4me.sdk.models.Optimization" title="route4me.sdk.models.Optimization">Optimization</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="route4me.sdk.resources.optimizations.Optimizations.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/resources/optimizations.html#Optimizations.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.resources.optimizations.Optimizations.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>GET a single optimization by ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ID</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Optimization Problem ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Optimization data</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#route4me.sdk.models.Optimization" title="route4me.sdk.models.Optimization">Optimization</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="errors.html#route4me.sdk.errors.Route4MeEntityNotFoundError" title="route4me.sdk.errors.Route4MeEntityNotFoundError"><strong>Route4MeEntityNotFoundError</strong></a> – if optimization was not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
 </div>
 
 
@@ -185,7 +791,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="errors.html" class="btn btn-neutral float-right" title="Errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="install.html" class="btn btn-neutral" title="Installation guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -197,7 +803,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Route4Me Python Team.
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
 
     </p>
   </div>
@@ -219,7 +825,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1.0-dev.4',
+            VERSION:'0.1.0-dev.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

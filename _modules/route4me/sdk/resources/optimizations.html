@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>route4me.sdk.resources.optimizations &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="../../../../index.html"/>
+        <link rel="up" title="route4me.sdk" href="../../sdk.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Route4Me Python SDK
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0-dev.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../errors.html">Errors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Route4Me Python SDK</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../sdk.html">route4me.sdk</a> &raquo;</li>
+        
+      <li>route4me.sdk.resources.optimizations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for route4me.sdk.resources.optimizations</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">An Optimization Problem refers to a collection of addresses that need to be</span>
+<span class="sd">visited.</span>
+
+<span class="sd">The optimization problem takes into consideration all of the addresses that</span>
+<span class="sd">need to be visited and all the constraints associated with each address and</span>
+<span class="sd">depot.</span>
+
+<span class="sd">It is preferable to create an optimization problem with as many orders in it</span>
+<span class="sd">as possible, so that the optimization engine is able to consider the entire</span>
+<span class="sd">problem set.</span>
+
+<span class="sd">This is different from a :class:`~route4me.sdk.resources.routes.Route`, which</span>
+<span class="sd">is a sequence of addresses that need to be visited by a single vehicle and</span>
+<span class="sd">driver in a fixed time period. Solving an Optimization Problem results in</span>
+<span class="sd">a number of routes. (Possibly recurring in the future)</span>
+
+<span class="sd">.. seealso:: https://route4me.io/docs/#optimizations</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.._net</span> <span class="k">import</span> <span class="n">NetworkClient</span>
+<span class="kn">from</span> <span class="nn">..models</span> <span class="k">import</span> <span class="n">Optimization</span>
+
+
+<div class="viewcode-block" id="Optimizations"><a class="viewcode-back" href="../../../../api.html#route4me.sdk.resources.optimizations.Optimizations">[docs]</a><span class="k">class</span> <span class="nc">Optimizations</span><span class="p">:</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Optimizations resource</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Optimizations.__init__"><a class="viewcode-back" href="../../../../api.html#route4me.sdk.resources.optimizations.Optimizations.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_network_client</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+		<span class="n">nc</span> <span class="o">=</span> <span class="n">_network_client</span>
+		<span class="k">if</span> <span class="n">nc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">nc</span> <span class="o">=</span> <span class="n">NetworkClient</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__nc</span> <span class="o">=</span> <span class="n">nc</span></div>
+
+<div class="viewcode-block" id="Optimizations.create"><a class="viewcode-back" href="../../../../api.html#route4me.sdk.resources.optimizations.Optimizations.create">[docs]</a>	<span class="k">def</span> <span class="nf">create</span><span class="p">(</span>
+		<span class="bp">self</span><span class="p">,</span>
+		<span class="n">optimization_data</span><span class="p">,</span>
+		<span class="n">optimized_callback_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+	<span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Create a new optimization through the Route4Me API</span>
+
+<span class="sd">		You could pass any valid URL as :paramref:`optimized_callback_url`</span>
+<span class="sd">		parameter.</span>
+
+<span class="sd">		The callback URL is a URL that gets called when the optimization is</span>
+<span class="sd">		solved, or if there is an error. The callback is called with a</span>
+<span class="sd">		``POST`` request. The POST data sent is:</span>
+
+<span class="sd">		- ``timestamp`` (seconds)</span>
+<span class="sd">		- ``optimization_problem_id``</span>
+<span class="sd">		- ``state`` (id  of the optimization state)</span>
+
+<span class="sd">		The state is a value from the enumeration</span>
+<span class="sd">		:class:`route4me.sdk.enums.OptimizationStateEnum`</span>
+
+<span class="sd">		:param optimization_data: Optimization data</span>
+<span class="sd">		:type optimization_data: ~route4me.sdk.models.Optimization</span>
+<span class="sd">		:param optimized_callback_url: *Optimization done* callback URL</span>
+<span class="sd">		:type optimized_callback_url: str or None</span>
+<span class="sd">		:returns: New optimization</span>
+<span class="sd">		:rtype: ~route4me.sdk.models.Optimization</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+		<span class="k">if</span> <span class="n">optimized_callback_url</span><span class="p">:</span>
+			<span class="n">query</span> <span class="o">=</span> <span class="p">{</span>
+				<span class="s1">&#39;optimized_callback_url&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">optimized_callback_url</span><span class="p">),</span>
+			<span class="p">}</span>
+
+		<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nc</span><span class="p">)</span>
+
+		<span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nc</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+			<span class="s1">&#39;/api.v4/optimization_problem.php&#39;</span><span class="p">,</span>
+			<span class="n">subdomain</span><span class="o">=</span><span class="s1">&#39;www&#39;</span><span class="p">,</span>
+			<span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
+			<span class="n">json</span><span class="o">=</span><span class="n">optimization_data</span><span class="p">,</span>
+		<span class="p">)</span>
+		<span class="k">return</span> <span class="n">Optimization</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Optimizations.get"><a class="viewcode-back" href="../../../../api.html#route4me.sdk.resources.optimizations.Optimizations.get">[docs]</a>	<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ID</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		GET a single optimization by ID.</span>
+
+<span class="sd">		:param ID: Optimization Problem ID</span>
+<span class="sd">		:type ID: str</span>
+<span class="sd">		:returns: Optimization data</span>
+<span class="sd">		:rtype: ~route4me.sdk.models.Optimization</span>
+
+<span class="sd">		:raises ~route4me.sdk.errors.Route4MeEntityNotFoundError: if optimization was not found</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+			<span class="s1">&#39;/api.v4/optimization_problem.php&#39;</span><span class="p">,</span>
+			<span class="n">subdomain</span><span class="o">=</span><span class="s1">&#39;www&#39;</span><span class="p">,</span>
+			<span class="n">query</span><span class="o">=</span><span class="p">{</span>
+				<span class="s1">&#39;optimization_problem_id&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">ID</span><span class="p">),</span>
+			<span class="p">}</span>
+		<span class="p">)</span>
+
+		<span class="k">return</span> <span class="n">Optimization</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+	<span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">pass</span>
+
+	<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">pass</span>
+
+	<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1.0-dev.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

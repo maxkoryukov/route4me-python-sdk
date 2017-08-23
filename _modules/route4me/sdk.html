@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>route4me.sdk &mdash; Route4Me Python SDK 0.1.0-dev.4 documentation</title>
+  <title>route4me.sdk &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.4 documentation" href="../../index.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
   
@@ -59,13 +59,16 @@
           
 
           
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
           </a>
 
           
             
             
               <div class="version">
-                0.1.0-dev.4
+                0.1.0-dev.5
               </div>
             
           
@@ -89,15 +92,22 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Intro</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../errors.html">Errors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
 
             
@@ -162,32 +172,114 @@
            <div itemprop="articleBody">
             
   <h1>Source code for route4me.sdk</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Official Python SDK for Route4Me</span>
 
+<span class="sd">Contains all required functions to work with Route4Me from Python&#39;s environment.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">version</span>
+<span class="kn">from</span> <span class="nn">._net</span> <span class="k">import</span> <span class="n">NetworkClient</span>
+
+<span class="kn">from</span> <span class="nn">.resources.geocodings</span> <span class="k">import</span> <span class="n">Geocodings</span>
+<span class="kn">from</span> <span class="nn">.resources.members</span> <span class="k">import</span> <span class="n">Members</span>
+<span class="kn">from</span> <span class="nn">.resources.optimizations</span> <span class="k">import</span> <span class="n">Optimizations</span>
+<span class="kn">from</span> <span class="nn">.resources.telematics</span> <span class="k">import</span> <span class="n">Telematics</span>
+
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">PROJECT</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">COPYRIGHT</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">AUTHOR</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">TITLE</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">LICENSE</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">VERSION_STRING</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">RELEASE_STRING</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">BUILD</span>
+<span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">COMMIT</span>
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="n">__version__</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">VERSION_STRING</span>
+<span class="n">__project__</span> <span class="o">=</span> <span class="n">PROJECT</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="n">COPYRIGHT</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="n">AUTHOR</span>
+<span class="n">__title__</span> <span class="o">=</span> <span class="n">TITLE</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="n">LICENSE</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="n">VERSION_STRING</span>
+<span class="n">__release__</span> <span class="o">=</span> <span class="n">RELEASE_STRING</span>
+<span class="n">__build__</span> <span class="o">=</span> <span class="n">BUILD</span>
+<span class="n">__commit__</span> <span class="o">=</span> <span class="n">COMMIT</span>
 
 
-<div class="viewcode-block" id="Route4Me"><a class="viewcode-back" href="../../api.html#route4me.sdk.Route4Me">[docs]</a><span class="k">class</span> <span class="nc">Route4Me</span><span class="p">:</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="s1">&#39;ApiClient&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="ApiClient"><a class="viewcode-back" href="../../api.html#route4me.sdk.ApiClient">[docs]</a><span class="k">class</span> <span class="nc">ApiClient</span><span class="p">:</span>
 	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Route4Me API client (implements all SDK features)</span>
+<span class="sd">	Route4Me API client</span>
 
-<span class="sd">	Contains all methods and namespaces available to work with Route4Me API</span>
+<span class="sd">	Provides an access to API&#39;s endpoints through a convenient interface. In</span>
+<span class="sd">	other words, all the power of Route4Me API is accessible through this</span>
+<span class="sd">	class.</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 
-	<span class="n">version</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">VERSION_STRING</span>
+	<span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span>
 
-	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Init Route4Me Python SDK [</span><span class="si">%s</span><span class="s1">]&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">)</span></div>
+<div class="viewcode-block" id="ApiClient.__init__"><a class="viewcode-back" href="../../api.html#route4me.sdk.ApiClient.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+			<span class="s1">&#39;Init Route4Me Python SDK [</span><span class="si">%s</span><span class="s1">] build [</span><span class="si">%s</span><span class="s1">] commit [</span><span class="si">%s</span><span class="s1">]&#39;</span><span class="p">,</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+			<span class="n">__build__</span><span class="p">,</span>
+			<span class="n">__commit__</span><span class="p">,</span>
+		<span class="p">)</span>
+
+		<span class="n">nc</span> <span class="o">=</span> <span class="n">NetworkClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+
+		<span class="n">resource_params</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
+			<span class="s1">&#39;_network_client&#39;</span><span class="p">:</span> <span class="n">nc</span><span class="p">,</span>
+		<span class="p">}</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">activity_feed</span>   <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">addresses</span>       <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">address_book</span>    <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">avoidance_zones</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_geocodings</span> <span class="o">=</span> <span class="n">Geocodings</span><span class="p">(</span><span class="o">**</span><span class="n">resource_params</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_members</span> <span class="o">=</span> <span class="n">Members</span><span class="p">(</span><span class="o">**</span><span class="n">resource_params</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">notes</span>           <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_optimizations</span> <span class="o">=</span> <span class="n">Optimizations</span><span class="p">(</span><span class="o">**</span><span class="n">resource_params</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">orders</span>          <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">routes</span>          <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_telematics</span> <span class="o">=</span> <span class="n">Telematics</span><span class="p">(</span><span class="o">**</span><span class="n">resource_params</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">territories</span>     <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">tracking</span>        <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">vehicles</span>        <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># noqa: E221  # TODO: implement</span></div>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">geocodings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Geocodings functions</span>
+
+<span class="sd">		:returns: Geocoding namespace</span>
+<span class="sd">		:rtype: :class:`~resources.geocodings.Geocodings`</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geocodings</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">members</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">optimizations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_optimizations</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">telematics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_telematics</span></div>
 </pre></div>
 
            </div>
@@ -202,7 +294,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Route4Me Python Team.
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
 
     </p>
   </div>
@@ -224,7 +316,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.1.0-dev.4',
+            VERSION:'0.1.0-dev.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

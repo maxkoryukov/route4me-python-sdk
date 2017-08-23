@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Utilities &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="index.html"/>
+        <link rel="next" title="Errors" href="errors.html"/>
+        <link rel="prev" title="API" href="api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Route4Me Python SDK
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0-dev.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-route4me.sdk.utils.typeconv">Typeconv</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Route4Me Python SDK</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/route4me/route4me-python-sdk" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utilities">
+<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-route4me.sdk.utils.typeconv">
+<span id="typeconv"></span><h2>Typeconv<a class="headerlink" href="#module-route4me.sdk.utils.typeconv" title="Permalink to this headline">¶</a></h2>
+<p>Type-conversion helpers</p>
+<p>This module contains several classes and functions for parsing and converting
+types.</p>
+<p>Most functions are designed to work like default functions: <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a> — take at least one parameter and return well-typed value.</p>
+<dl class="function">
+<dt id="route4me.sdk.utils.typeconv.str2bool">
+<code class="descclassname">route4me.sdk.utils.typeconv.</code><code class="descname">str2bool</code><span class="sig-paren">(</span><em>strvalue</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/utils/typeconv.html#str2bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.utils.typeconv.str2bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts string value to <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>. Can parse human-readable values,
+like <code class="docutils literal"><span class="pre">'yes'</span></code> and <code class="docutils literal"><span class="pre">'off'</span></code>.</p>
+<p>If value is not recognized – the value of the <a href="#id1"><span class="problematic" id="id2">:paramref:`~str2bool.default`</span></a>
+argument will be returned.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#route4me.sdk.utils.typeconv.str2bool" title="route4me.sdk.utils.typeconv.str2bool"><code class="xref py py-func docutils literal"><span class="pre">str2bool()</span></code></a> is not an extension of default <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>. For
+example, it doesn’t recognize integer <code class="docutils literal"><span class="pre">2</span></code> (or any other number) as
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">True</span></code></a> value.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>strvalue</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Value to parse</li>
+<li><strong>default</strong> – Default value, defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">None</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Parsed boolean value or <a href="#id3"><span class="problematic" id="id4">:paramref:`~str2bool.default`</span></a>         (if defined). Not a bool value will be returned <strong>only</strong> if value was not       recognized.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)">bool</a> or *</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="errors.html" class="btn btn-neutral float-right" title="Errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0-dev.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

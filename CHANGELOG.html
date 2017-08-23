@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CHANGELOG &mdash; Route4Me Python SDK 0.1.0-dev.4 documentation</title>
+  <title>CHANGELOG &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
   
 
   
@@ -35,7 +35,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.4 documentation" href="index.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="index.html"/>
+        <link rel="next" title="License" href="license.html"/>
         <link rel="prev" title="Errors" href="errors.html"/> 
 
   
@@ -59,13 +60,16 @@
           
 
           
+            
+            <img src="_static/logo.png" class="logo" />
+          
           </a>
 
           
             
             
               <div class="version">
-                0.1.0-dev.4
+                0.1.0-dev.5
               </div>
             
           
@@ -89,20 +93,30 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Intro</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#unreleased">unreleased // ???</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dev">2017-08-13 // 0.1.0-dev</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unreleased-0-0-0">unreleased // 0.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package-design">Package design</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dev-4">2017-08-13 // 0.1.0-dev.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#">2014-07-01 // 0.0.1</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
             
@@ -153,7 +167,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/changelog.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/CHANGELOG.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,14 +182,27 @@
             
   <div class="section" id="changelog">
 <span id="changelog"></span><h1>CHANGELOG<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<p>This is the history of changes of the <code class="docutils literal"><span class="pre">route4me-python-sdk</span></code> package.</p>
-<p>This file should be filled by maintainers, using pull requests.</p>
+<p>The history of changes of the <code class="docutils literal"><span class="pre">route4me/route4me-python-sdk</span></code> project.</p>
+<p>This file <strong>MUST</strong> be filled only by maintainers, using messages from pull
+requests.</p>
 <p>Please, follow this <a class="reference external" href="http://keepachangelog.com/en/0.3.0/">guide</a>.</p>
-<div class="section" id="unreleased">
-<span id="unreleased"></span><h2>unreleased // ???<a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unreleased-0-0-0">
+<span id="unreleased-0-0-0"></span><h2>unreleased // 0.0.0<a class="headerlink" href="#unreleased-0-0-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>network agent</li>
+<li>core error handling (network access, SSL issues)</li>
+</ul>
+<div class="section" id="package-design">
+<span id="package-design"></span><h3>Package design<a class="headerlink" href="#package-design" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>embed meta variables <code class="docutils literal"><span class="pre">__version__</span></code>, <code class="docutils literal"><span class="pre">__author__</span></code> e.t.c</li>
+<li>auto-generated docs</li>
+<li>build for python versions 2.6-3.6 on Travis CI and Appveyor</li>
+</ul>
 </div>
-<div class="section" id="dev">
-<span id="dev"></span><h2>2017-08-13 // 0.1.0-dev<a class="headerlink" href="#dev" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dev-4">
+<span id="dev-4"></span><h2>2017-08-13 // 0.1.0-dev.4<a class="headerlink" href="#dev-4" title="Permalink to this headline">¶</a></h2>
 <p><strong>The first version</strong> was published on PyPI.</p>
 </div>
 <div class="section" id="">
@@ -194,6 +221,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="errors.html" class="btn btn-neutral" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
@@ -204,7 +233,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Route4Me Python Team.
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
 
     </p>
   </div>
@@ -226,7 +255,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1.0-dev.4',
+            VERSION:'0.1.0-dev.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start &mdash; Route4Me Python SDK 0.1.0-dev.4 documentation</title>
+  <title>Quick Start &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.4 documentation" href="index.html"/>
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="index.html"/>
         <link rel="next" title="Installation guide" href="install.html"/>
-        <link rel="prev" title="Route4Me Python SDK" href="index.html"/> 
+        <link rel="prev" title="Route4Me Route Optimization Python SDK" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -60,13 +60,16 @@
           
 
           
+            
+            <img src="_static/logo.png" class="logo" />
+          
           </a>
 
           
             
             
               <div class="version">
-                0.1.0-dev.4
+                0.1.0-dev.5
               </div>
             
           
@@ -90,19 +93,26 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Intro</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Main</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-example">Run example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use">Use</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
             
@@ -141,6 +151,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -153,7 +165,10 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/route4me/route4me-python-sdk" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -180,12 +195,15 @@
 <p class="last">The full installation guide: <a class="reference internal" href="install.html"><span class="doc">Installation guide</span></a></p>
 </div>
 </div>
-<div class="section" id="run-example">
-<h2>Run example<a class="headerlink" href="#run-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="use">
+<h2>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">route4m.sdk</span>
 
 <span class="n">r4m</span> <span class="o">=</span> <span class="n">route4me</span><span class="o">.</span><span class="n">sdk</span><span class="o">.</span><span class="n">Route4Me</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;1111111&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r4m</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="n">r4m</span><span class="o">.</span><span class="n">optimizations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;07372F2CF3814EC6DFFAFE92E22771AA&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -204,7 +222,7 @@
         <a href="install.html" class="btn btn-neutral float-right" title="Installation guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Route4Me Python SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Route4Me Route Optimization Python SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -213,7 +231,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Route4Me Python Team.
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
 
     </p>
   </div>
@@ -235,7 +253,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1.0-dev.4',
+            VERSION:'0.1.0-dev.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

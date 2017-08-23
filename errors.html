@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Errors &mdash; Route4Me Python SDK 0.1.0-dev.4 documentation</title>
+  <title>Errors &mdash; Route4Me Python SDK 0.1.0-dev.5 documentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.4 documentation" href="index.html"/>
-        <link rel="next" title="CHANGELOG" href="changelog.html"/>
-        <link rel="prev" title="API" href="api.html"/> 
+    <link rel="top" title="Route4Me Python SDK 0.1.0-dev.5 documentation" href="index.html"/>
+        <link rel="next" title="CHANGELOG" href="CHANGELOG.html"/>
+        <link rel="prev" title="Utilities" href="utils.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -60,13 +60,16 @@
           
 
           
+            
+            <img src="_static/logo.png" class="logo" />
+          
           </a>
 
           
             
             
               <div class="version">
-                0.1.0-dev.4
+                0.1.0-dev.5
               </div>
             
           
@@ -90,15 +93,22 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Errors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Misc</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
             
@@ -137,6 +147,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -149,7 +161,10 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/errors.rst.txt" rel="nofollow"> View page source</a>
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/route4me/route4me-python-sdk" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -165,10 +180,33 @@
   <div class="section" id="module-route4me.sdk.errors">
 <span id="errors"></span><h1>Errors<a class="headerlink" href="#module-route4me.sdk.errors" title="Permalink to this headline">¶</a></h1>
 <dl class="exception">
+<dt id="route4me.sdk.errors.Route4MeApiError">
+<em class="property">exception </em><code class="descclassname">route4me.sdk.errors.</code><code class="descname">Route4MeApiError</code><span class="sig-paren">(</span><em>message</em>, <em>code='route4me.sdk.other'</em>, <em>details=None</em>, <em>inner=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/errors.html#Route4MeApiError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.errors.Route4MeApiError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#route4me.sdk.errors.Route4MeError" title="route4me.sdk.errors.Route4MeError"><code class="xref py py-class docutils literal"><span class="pre">route4me.sdk.errors.Route4MeError</span></code></a></p>
+<p>Error on Route4Me SDK</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Make this exception more detailed</p>
+</div>
+</dd></dl>
+
+<dl class="exception">
+<dt id="route4me.sdk.errors.Route4MeEntityNotFoundError">
+<em class="property">exception </em><code class="descclassname">route4me.sdk.errors.</code><code class="descname">Route4MeEntityNotFoundError</code><span class="sig-paren">(</span><em>message</em>, <em>code='route4me.sdk.other'</em>, <em>details=None</em>, <em>inner=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/errors.html#Route4MeEntityNotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.errors.Route4MeEntityNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#route4me.sdk.errors.Route4MeError" title="route4me.sdk.errors.Route4MeError"><code class="xref py py-class docutils literal"><span class="pre">route4me.sdk.errors.Route4MeError</span></code></a></p>
+<p>Requested entity was not found on Route4Me</p>
+</dd></dl>
+
+<dl class="exception">
 <dt id="route4me.sdk.errors.Route4MeError">
 <em class="property">exception </em><code class="descclassname">route4me.sdk.errors.</code><code class="descname">Route4MeError</code><span class="sig-paren">(</span><em>message</em>, <em>code='route4me.sdk.other'</em>, <em>details=None</em>, <em>inner=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/errors.html#Route4MeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.errors.Route4MeError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
-<p>Base (abstract) Exception</p>
+<p>Base (abstract) error-class</p>
+<dl class="method">
+<dt id="route4me.sdk.errors.Route4MeError.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>message</em>, <em>code='route4me.sdk.other'</em>, <em>details=None</em>, <em>inner=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/route4me/sdk/errors.html#Route4MeError.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#route4me.sdk.errors.Route4MeError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="route4me.sdk.errors.Route4MeError.code">
 <code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#route4me.sdk.errors.Route4MeError.code" title="Permalink to this definition">¶</a></dt>
@@ -254,10 +292,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="changelog.html" class="btn btn-neutral float-right" title="CHANGELOG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="CHANGELOG.html" class="btn btn-neutral float-right" title="CHANGELOG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="api.html" class="btn btn-neutral" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral" title="Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -266,7 +304,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Route4Me Python Team.
+        &copy; Copyright 2016-2017 , Route4Me Python Team.
 
     </p>
   </div>
@@ -288,7 +326,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1.0-dev.4',
+            VERSION:'0.1.0-dev.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
